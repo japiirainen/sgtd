@@ -1,4 +1,6 @@
-# sgtd
+Simple Get Things Done
+
+# How to use
 
 Start a [REPL](#repls) in your editor or terminal of choice.
 

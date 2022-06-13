@@ -1,7 +1,10 @@
 (ns build
   (:require [clojure.string :as string]
             [clojure.tools.build.api :as b]
-            [deps-deploy.deps-deploy :as deploy]))
+            [deps-deploy.deps-deploy :as deploy] 
+    [clojure.java.shell :refer [sh]])) 
+
+ (defn build-cljs [] (println "npx shadow-cljs release app...") (let [{:keys [exit], :as s} (sh "npx" "shadow-cljs" "release" "app")] (when-not (zero? exit) (throw (ex-info "could not compile cljs" s))) (sh "cp" "-r" "target/classes/cljsbuild/public" "target/classes/")))
 
 (def lib 'japiirainen/sgtd)
 (def main-cls (string/join "." (filter some? [(namespace lib) (name lib) "core"])))
@@ -31,7 +34,8 @@
   (println "Compiling Clojure...")
   (b/compile-clj {:basis basis
                   :src-dirs ["src/clj" "env/prod/clj"]
-                  :class-dir class-dir})
+                  :class-dir class-dir}) 
+  (build-cljs)
   (println "Making uberjar...")
   (b/uber {:class-dir class-dir
            :uber-file uber-file

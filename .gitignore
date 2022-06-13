@@ -12,3 +12,4 @@ log/
 
 # clj-kondo
 .clj-kondo/.cache/
+.shadow-cljs/*

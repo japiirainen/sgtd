@@ -14,7 +14,8 @@
 
     ;; Routes
     [japiirainen.sgtd.web.routes.api]
-    )
+    
+    [japiirainen.sgtd.web.routes.pages])
   (:gen-class))
 
 ;; log uncaught exceptions in threads
