@@ -12,4 +12,5 @@ log/
 
 # clj-kondo
 .clj-kondo/.cache/
-.shadow-cljs/*
+.shadow-cljs
+node_modules
