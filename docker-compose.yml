@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 8888:8080
+
+  postgresql:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: sgtd
+      POSTGRES_USER: sgtd
+      POSTGRES_DB: sgtd
+    ports:
+      - 5432:5432
