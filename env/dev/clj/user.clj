@@ -10,6 +10,7 @@
     [integrant.repl :refer [clear go halt prep init reset reset-all]]
     [integrant.repl.state :as state]
     [kit.api :as kit]
+    [migratus.core :as m]
     [lambdaisland.classpath.watch-deps :as watch-deps]      ;; hot loading for deps
     [japiirainen.sgtd.core :refer [start-app]]))
 
@@ -43,9 +44,22 @@
 
 (comment
   (+ 1 1)
+  ; kit stuff
   (kit/install-module :kit/cljs)
   (kit/list-modules)
   (kit/sync-modules)
+
+  ; migrations (migratus)
+  ; create migration
+  (def db-config (:db.sql/migrations state/system))
+  (m/init db-config)
+  (m/migrate db-config)
+  (m/create db-config "initial-schema")
+  (m/up db-config 20220615160556)
+  (m/down db-config 20220615160556)
+  (m/rollback db-config)
+
+  (halt)
 
   (go)
 
