@@ -44,20 +44,34 @@
 
 (comment
   (+ 1 1)
+
   ; kit stuff
   (kit/install-module :kit/cljs)
   (kit/list-modules)
   (kit/sync-modules)
 
-  ; migrations (migratus)
-  ; create migration
   (def db-config (:db.sql/migrations state/system))
+  ; migrations (migratus)
+
   (m/init db-config)
+
+  (m/create db-config "initial-shcema")
+
+  (m/up db-config 20220617153929)
+  (m/down db-config 20220617153929)
+
   (m/migrate db-config)
-  (m/create db-config "initial-schema")
-  (m/up db-config 20220615160556)
-  (m/down db-config 20220615160556)
   (m/rollback db-config)
+
+  (def query-fn (:db.sql/query-fn state/system))
+
+  (query-fn :get-entry-by-id {:id 2})
+  (query-fn :get-entries {})
+
+  (query-fn :get-project-by-id {:id 2})
+  (query-fn :get-projects {})
+
+  (refresh)
 
   (halt)
 
