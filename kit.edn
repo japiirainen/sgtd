@@ -1,8 +1,0 @@
-{:full-name "japiirainen/sgtd"
- :ns-name   "japiirainen.sgtd"
- :sanitized "japiirainen/sgtd"
- :name      "sgtd"
- :modules   {:root         "modules"
-             :repositories [{:url "git@github.com:kit-clj/modules.git"
-                             :tag  "master"
-                             :name "kit-modules"}]}}
