@@ -1,7 +1,7 @@
 CREATE TYPE entry_location AS ENUM (
     'inbox',
-    'waiting_for',
-    'some_day',
+    'waiting-for',
+    'some-day',
     'archived',
     'project'
 );
@@ -9,11 +9,11 @@ CREATE TYPE entry_location AS ENUM (
 CREATE TYPE entry_state AS ENUM ('done', 'todo');
 --;;
 CREATE TABLE entry (
-    id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     content TEXT NOT NULL DEFAULT '',
-    location text NOT NULL,
+    location VARCHAR(56) NOT NULL,
     context VARCHAR(256) NULL,
-    state entry_state NOT NULL
+    state VARCHAR(56) NOT NULL
 );
 --;;
 CREATE TABLE project (

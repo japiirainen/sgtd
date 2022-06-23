@@ -3,7 +3,7 @@
 
 # start backend repl
 @backend:
-    clj -M:dev:test:common:backend -m nrepl.cmdline -i -C
+    clj -M:cider-clj:dev:test:common:backend -i -C
 
 # test
 @test +args='':

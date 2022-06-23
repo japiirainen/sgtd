@@ -1,4 +1,4 @@
-version: '3'
+version: "3.7"
 services:
   pg:
     build: ./postgres
@@ -10,3 +10,7 @@ services:
       POSTGRES_DB: sgtd
       POSTGRES_USER: sgtd
       POSTGRES_PASSWORD: sgtd
+  adminer:
+    image: adminer:latest
+    ports:
+      - 8080:8080
