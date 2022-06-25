@@ -1,4 +1,4 @@
-(ns sgtd.backend.routes
+(ns sgtd.routes
   (:require [reitit.swagger-ui :as swagger-ui]
             [reitit.swagger :as swagger]
             [fumi.client :as fc]))

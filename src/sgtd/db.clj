@@ -1,4 +1,4 @@
-(ns sgtd.backend.db
+(ns sgtd.db
   (:require [jsonista.core :as j])
   (:import (org.postgresql.util PGobject)))
 

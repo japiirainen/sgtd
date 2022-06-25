@@ -1,4 +1,4 @@
-(ns sgtd.backend.entry.entry
+(ns sgtd.entry.entry
   (:require [malli.util :as mu]))
 
 (def Entry

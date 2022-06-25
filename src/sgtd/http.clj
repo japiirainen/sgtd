@@ -1,4 +1,4 @@
-(ns sgtd.backend.http
+(ns sgtd.http
   (:require [reitit.ring :as ring]
             [reitit.coercion.malli]
             [reitit.swagger :as swagger]

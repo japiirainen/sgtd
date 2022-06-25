@@ -1,10 +1,10 @@
-(ns sgtd.backend.main
+(ns sgtd.main
   (:require [clojure.tools.logging :as log]
             [hikari-cp.core :as hikari-cp]
             [integrant.core :as ig]
             [ring.adapter.jetty :as jetty]
-            [sgtd.backend.http :as http]
-            [sgtd.backend.routes :as routes])
+            [sgtd.http :as http]
+            [sgtd.routes :as routes])
   (:import [org.eclipse.jetty.server Server]
            [org.flywaydb.core Flyway]))
 

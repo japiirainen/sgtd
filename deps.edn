@@ -1,30 +1,25 @@
 {:paths ["resources"]
- :aliases {:cider-clj {:extra-deps {org.clojure/clojure {:mvn/version "1.11.1"}
-                                    refactor-nrepl/refactor-nrepl {:mvn/version "3.5.2"}
-                                    cider/cider-nrepl {:mvn/version "0.28.4"}}
+ :aliases {:cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.28.4"}}
                        :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
-
-           :cider-cljs {:extra-deps {org.clojure/clojure {:mvn/version "1.11.1"}
-                                     org.clojure/clojurescript {:mvn/version "1.10.339"}
-                                     refactor-nrepl/refactor-nrepl {:mvn/version "3.5.2"}
+           :cider-cljs {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
                                      cider/cider-nrepl {:mvn/version "0.28.4"}
-                                     cider/piggieback {:mvn/version "0.5.2"}}
+                                     cider/piggieback {:mvn/version "0.5.1"}}
                         :main-opts ["-m" "nrepl.cmdline" "--middleware"
                                     "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
            :dev {:extra-paths ["dev-resources" "classes"]
                  :extra-deps {org.clojure/clojure {:mvn/version "1.11.1"}
                               thheller/shadow-cljs {:mvn/version "2.19.3"}
                               clj-kondo/clj-kondo {:mvn/version "2022.05.31"}}}
-           :test {:extra-paths ["test/clj" "test/cljc" "test/cljs"]
+           :test {:extra-paths ["test"]
                   :extra-deps {lambdaisland/kaocha {:mvn/version "1.0-612"}
                                lambdaisland/kaocha-cljs {:mvn/version "0.0-71"}
                                clj-http/clj-http {:mvn/version "3.10.1"}}}
-           :common {:extra-paths ["src/cljc"]
+           :common {:extra-paths ["src"]
                     :extra-deps {metosin/reitit {:mvn/version "0.5.18"}
                                  metosin/malli {:mvn/version "0.8.4"}
                                  metosin/jsonista {:mvn/version "0.3.6"}
                                  integrant/repl {:mvn/version "0.3.2"}}}
-           :frontend {:extra-paths ["src/cljs"]
+           :frontend {:extra-paths ["src"]
                       :extra-deps {org.clojure/clojurescript {:mvn/version "1.10.597"}
                                    reagent/reagent {:mvn/version "0.10.0"}
                                    re-frame/re-frame {:mvn/version "0.12.0"}
@@ -32,7 +27,7 @@
                                    day8.re-frame/re-frame-10x {:mvn/version "0.6.2"}
                                    binaryage/devtools {:mvn/version "1.0.0"}
                                    syn-antd/syn-antd {:mvn/version "4.0.0-rc.1"}}}
-           :backend {:extra-paths ["src/clj"]
+           :backend {:extra-paths ["src"]
                      :extra-deps {integrant/integrant {:mvn/version "0.8.0"}
                                   fumi/fumi {:mvn/version "0.1.0-beta1"}
                                   metosin/ring-http-response {:mvn/version "0.9.3"}
