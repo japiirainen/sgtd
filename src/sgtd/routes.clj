@@ -6,10 +6,9 @@
 (defn create [env]
   [["/swagger.json"
     {:get {:no-doc true
-           :swagger {:info {:title "example-api"
-                            :description "Example API"}
-                     :tags [{:name "pizza", :description "pizza-api"}
-                            {:name "health" :description "health-api"}
+           :swagger {:info {:title "sgtd API"
+                            :description "Simple Get Things Done API"}
+                     :tags [{:name "sgtd", :description "Simple Get Things Done"}
                             {:name "dispatch" :description "dispatcher-api"}]}
            :handler (swagger/create-swagger-handler)}}]
    ["/api-docs/*"
