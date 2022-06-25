@@ -2,8 +2,17 @@
  :nrepl {:port 6666}
  :builds {:app {:target :browser
                 :output-dir "dev-resources/public/js"
+                :dev              {:build-hooks [(teknql.tailwind/start-watch!)]}
+                :release          {:build-hooks [(teknql.tailwind/compile-release!)]}
                 :asset-path "/js"
-                :modules {:main {:entries [sgtd.frontend.main]}}
-                :compiler-options {:closure-defines {"re_frame.trace.trace_enabled_qmark_" true}}
-                :devtools {:preloads [devtools.preload
-                                      day8.re-frame-10x.preload]}}}}
+                :modules {:main {:entries [sgtd.core]
+                                 :init-fn sgtd.core/init}}
+                :tailwind/output  "dev-resources/public/app.css"
+                :tailwind/files   {:base-path "."
+                                   :tailwind.css "./dev-resources/tw/style.css"}
+                :compiler-options {:closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
+                                   :infer-externs :auto}
+                :devtools {:http-port 3001
+                           :http-root "dev-resources/public/"
+                           :after-load sgtd.core/re-render
+                           :preloads [devtools.preload shadow.remote.runtime.cljs.browser]}}}}

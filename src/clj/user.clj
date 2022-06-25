@@ -1,4 +1,4 @@
-(ns user
+(ns clj.user
   (:require [integrant.repl :refer [clear go halt prep init reset reset-all]]
             [integrant.repl.state :as state]
             [sgtd.main :as main]

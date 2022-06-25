@@ -1,0 +1,16 @@
+
+{:min-bb-version "0.3.6"
+ :tasks
+ {watch {:task (shell "npx shadow-cljs watch app")}
+  compile {:task (shell "npx shadow-cljs compile app")}
+  release {:task (shell "npx shadow-cljs release app")}
+  ;;updates
+  update-npm {:task (shell "npx npm-check-updates -u")}
+  update-deps {:task (shell "clojure -Moutdated --upgrade")}
+ ;;tailwind 
+  purgecss {:task (shell "npm run-script tw")}
+ ;;shadow report
+  buildreport {:task (let [date (java.time.LocalDateTime/now)
+                           formatter (java.time.format.DateTimeFormatter/ofPattern "yyyy-MM-dd")
+                           file (str "buildreport_" (.format date formatter) ".html")]
+                       (shell (str "npx shadow-cljs run shadow.cljs.build-report app " file)))}}}

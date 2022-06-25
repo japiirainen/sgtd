@@ -1,10 +1,11 @@
-kit.git-config.edn
+dev-resources/public/js
 .DS_Store
 .nrepl-port
 hs_err_pid*.log
 .cpcache/
 target
 log/
+.log
 
 # IntelliJ
 *.iml
