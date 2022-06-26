@@ -1,23 +1,31 @@
 # Simple Get Things Done
 
-## Development
+## API Development
 
 ```bash
-just up
-just backend
+bb up
+bb api-repl
 $ (reset)
 ```
 
-* Api-docs: http://localhost:3000/api-docs
+- Api-docs: http://localhost:3000/api-docs
+
+## Frontend Development
+
+```bash
+bb watch
+```
+
+- app should be available at: http://localhost:3001
 
 Linting:
 
 ```bash
-just lint
+bb lint
 ```
 
 Tests:
 
 ```bash
-just test
+bb test
 ```

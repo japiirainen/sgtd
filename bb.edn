@@ -1,13 +1,18 @@
 
 {:min-bb-version "0.3.6"
  :tasks
- {watch {:task (shell "npx shadow-cljs watch app")}
+ {api-repl {:task (shell "clj -M:cider-clj:dev:test:common:backend -i -C")}
+  test {:task (shell (str "clojure -M:dev:test:common:backend:frontend -m kaocha.runner" *command-line-args*))}
+  up {:task (shell "docker-compose -f dev/docker-compose.yml up")}
+  down {:task (shell "docker-compose -f dev/docker-compose.yml down")}
+  lint {:task (shell "clj -M:dev -m clj-kondo.main --lint src")}
+  watch {:task (shell "npx shadow-cljs watch app")}
   compile {:task (shell "npx shadow-cljs compile app")}
   release {:task (shell "npx shadow-cljs release app")}
   ;;updates
   update-npm {:task (shell "npx npm-check-updates -u")}
   update-deps {:task (shell "clojure -Moutdated --upgrade")}
- ;;tailwind 
+ ;;tailwind
   purgecss {:task (shell "npm run-script tw")}
  ;;shadow report
   buildreport {:task (let [date (java.time.LocalDateTime/now)
