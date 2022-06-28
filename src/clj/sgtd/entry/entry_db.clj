@@ -14,7 +14,7 @@
 (defn ->db [entry]
   (-> entry
       (update :location (partial ->kw "entry_location"))
-      (update :state (partial ->kw "entry-state"))))
+      (update :state (partial ->kw "entry_state"))))
 
 (defn <-db [entry]
   (-> entry
